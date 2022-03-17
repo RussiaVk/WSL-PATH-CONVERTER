@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        static readonly Regex REGEX = new Regex(@"^[A-Za-z]:\\.*\\.*$");
+        static readonly Regex REGEX = new Regex(@"[A-Za-z]:\\.*");
 
         static string convert(string arg)
         { 
@@ -25,9 +25,7 @@ namespace WindowsFormsApp1
                 
                 //Is possible file path
                 result = arg.Replace(@"\", "/");
-                MessageBox.Show(result);
                 string[] arr = result.Split( ':');
-                MessageBox.Show( arr.Length.ToString());
                 result = arr[0].ToLower() + arr[1]; 
                 result = "/mnt/" + result;
             } 
